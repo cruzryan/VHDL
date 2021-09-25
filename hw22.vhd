@@ -9,7 +9,7 @@ entity eq is
 		);
 end eq;
 
-use word.compuerta.all;
+use work.compuerta.all;
 
 architecture s of eq is 
 	signal x: bit_vector (0 to 2);
