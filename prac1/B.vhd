@@ -2,16 +2,16 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 
-entity SWITCH is
+entity PB is
 	port(
 		A: in std_logic;
 		B: in std_logic;
 		X: out std_logic
 		);
-end SWITCH;
+end PB;
 
 
-architecture sw of SWITCH is
+architecture impl of PB is
 
 	begin 
 	-- X = (A+B’)’(A+B)
