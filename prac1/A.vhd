@@ -15,5 +15,5 @@ architecture impl of PA is
 
 	begin 
 	-- X = (AB')' + AB' 
-	X <= not(A and not(B)) or (A and not(B))	
+	X <= not(A and not(B)) or (A and not(B));	
 end impl;

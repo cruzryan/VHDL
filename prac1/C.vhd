@@ -15,5 +15,5 @@ architecture impl of PC is
 
 	begin 
 	-- X = A’+B+AB
-	X <= not(A) or B or (A and B)
+	X <= not(A) or B or (A and B);
 end impl;
