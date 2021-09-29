@@ -1,18 +1,18 @@
 --Simple inverter
---u
+--
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-
+ 
 entity SWITCH is
 	port(
-		A: in std_logic;
-		B: in std_logic;
+		A: in std_logic := '0';
+		B: in std_logic := '1'; 
 		F: out std_logic
-		);
-end SWITCH;
-
-
+		);  
+end SWITCH;    
+   
+ 
 architecture sw of SWITCH is
 
 	begin 
