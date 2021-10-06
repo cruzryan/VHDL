@@ -4,12 +4,11 @@ use IEEE.std_logic_1164.all;
 
 entity PB is
 	port(
-		A: in std_logic;
-		B: in std_logic;
+		A: in std_logic := '1';
+		B: in std_logic := '0';
 		X: out std_logic
 		);
 end PB;
-
 
 architecture impl of PB is
 
