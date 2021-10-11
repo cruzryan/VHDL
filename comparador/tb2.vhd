@@ -12,13 +12,7 @@ end TB2;
 
 
 architecture sim of TB2 is
-
-	--signal a : STD_LOGIC_VECTOR(0 to 3);
-	--signal b : STD_LOGIC_VECTOR(0 to 3);
-	--signal push : STD_LOGIC_VECTOR(0 to 3);
-	signal onn : STD_LOGIC_VECTOR(0 to 3);
-	--signal deco : out STD_LOGIC_VECTOR(0 to 6)
-
+	signal onn : STD_LOGIC;
 begin
 
 	comp : entity work.comparador(impl) port map(

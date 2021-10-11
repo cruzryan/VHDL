@@ -1,6 +1,6 @@
 library ieee;
 use IEEE.std_logic_1164.all;
-
+use ieee.numeric_std.all;
 
 entity comparador is 
 	port(
@@ -13,9 +13,13 @@ end comparador;
 
 architecture impl of comparador is
 	begin 
-		if (to_integer(unsigned(a)) < to_integer(unsigned(b))) then
-			o <= '1'
-		else
-		 	o <= '0'
-		end if; 
+		k: process
+		begin
+			wait for 10 ns;
+			if (to_integer(unsigned(a)) > to_integer(unsigned(b))) then
+				o <= '1';
+			else
+			 	o <= '0';
+			end if; 
+		end process k;
 end impl;

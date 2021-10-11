@@ -13,13 +13,7 @@ end TB1;
 
 
 architecture sim of TB1 is
-
-	--signal a : STD_LOGIC_VECTOR(0 to 3);
-	--signal b : STD_LOGIC_VECTOR(0 to 3);
-	--signal push : STD_LOGIC_VECTOR(0 to 3);
 	signal o : STD_LOGIC_VECTOR(0 to 3);
-	--signal deco : out STD_LOGIC_VECTOR(0 to 6)
-
 begin
 	mux : entity work.mux2x14c(impl) port map(
 		a => a,
