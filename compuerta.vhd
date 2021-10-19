@@ -5,8 +5,9 @@ entity compuerta is
 	port(
 		A,B,C: in std_logic;
 		F: out std_logic
+
 	);
-end entity;
+end compuerta;
 
 
 architecture and2 of compuerta is

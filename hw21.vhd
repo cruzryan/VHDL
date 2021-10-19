@@ -5,18 +5,37 @@ use ieee.std_logic_1164.all;
 
 entity eq is
 	port (A,B: in std_logic;
-		  C: out std_logic
+		  N: out std_logic
 		);
 end eq;
 
-use work.compuerta.all;
+--use work.compuerta.all;
 
 architecture s of eq is 
-	signal x: bit_vector (0 to 1);
+	signal x: std_logic_vector (0 to 1);
+	signal no_use: std_logic;
+
 	begin 
-		U0: and2 port map(A,B, x(0));
-		U1: and2 port map(B,A, x(1));
-		U3: or2 port map(x(0), x(1), C);
+		U0: entity work.compuerta(and2) port map(
+			A => A, 
+			B => B,
+			C => no_use,
+			F => x(0)
+			);
+
+		U1: entity work.compuerta(and2) port map(
+			A => B, 
+			B => A,
+			C => no_use,
+			F => x(1)
+			);
+		U2: entity work.compuerta(or2) port map(
+			A => x(0), 
+			B => x(1),
+			C => no_use,
+			F => N
+			);
+		--U3: entity work.compuerta(or2) port map(x(0), x(1), N);
 end s;
 
 

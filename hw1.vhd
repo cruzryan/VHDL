@@ -6,8 +6,8 @@ use IEEE.std_logic_1164.all;
 
 entity HW1 is
 
-	port(A : in std_logic := '1';
-		 B : in std_logic := '1';
+	port(A : in std_logic;
+		 B : in std_logic;
 		 F : out std_logic);
 end HW1;
 

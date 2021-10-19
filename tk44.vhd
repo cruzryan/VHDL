@@ -3,14 +3,14 @@ use IEEE.std_logic_1164.all;
 
 entity decodeco is
 	port(
-		entradas : in  STD_LOGIC_VECTOR(0 to 7);
-		salidas : out STD_LOGIC_VECTOR(0 to 2)
+		entradas: in  STD_LOGIC_VECTOR(0 to 7);
+		salidas: out STD_LOGIC_VECTOR(0 to 2)
 		);
 end decodeco;
-
+ 
 architecture cuerpo of decodeco is
 	begin
-		process is 
+		mi_funcion: process is 
 			begin
 				if (entradas = "00000001") then 
 					salidas <= "000";
@@ -29,6 +29,6 @@ architecture cuerpo of decodeco is
 				elsif (entradas = "10001000") then
 					salidas <= "111";
 				end if;
-				wait for 10 ns;
-		end process;
+				wait for 10 ns; 
+		end process mi_funcion;
 end cuerpo;
