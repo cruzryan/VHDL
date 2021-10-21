@@ -35,7 +35,6 @@ architecture s of eq is
 			C => no_use,
 			F => N
 			);
-		--U3: entity work.compuerta(or2) port map(x(0), x(1), N);
 end s;
 
 

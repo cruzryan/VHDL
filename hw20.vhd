@@ -13,5 +13,5 @@ end caja;
 
 architecture sec of caja is
 	begin 
-		s <= '1' when((a = '1') AND (b = '0') AND (c ='1') AND (c ='1')) else '0';
+		s <= '1' when((a = '1') AND (b = '0') AND (c ='1') AND (d ='1')) else '0';
 end sec;

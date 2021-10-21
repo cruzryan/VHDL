@@ -41,10 +41,6 @@ architecture s of hw22 is
 			C => x(2),
 			F => Y
 			);
-		--U0: entity work.compuerta(and2) port map(A,B, x(0));
-		--U1: and2 port map(C,B, x(1));
-		--U2: and2 port map(A,C, x(2));
-		--U3: or3 port map(x(0), x(1), x(2), Y);
 end s;
 
 
