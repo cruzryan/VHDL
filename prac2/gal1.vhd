@@ -7,7 +7,8 @@ entity Prac2Sumador is
 		DeepSwitch1 : in std_logic_vector(0 to 2);
 		DeepSwitch2 : in std_logic_vector(0 to 2);
 		Enter : in std_logic;
-		Salidas : out std_logic_vector(0 to 9)
+		SEG2 : out std_logic_vector(0 to 6)
+		Teller : out std_logic_vector(0 to 2)
 		);
 end Prac2Sumador;
 
@@ -112,6 +113,9 @@ begin
 			when 30 => SEG2 <= "1111110";
 		when others => report "unreachable" severity failure;
 		end case;
+
+		-- Mandarle al segundo gal el numero
+
 
 	wait for 10 ns;
 	end process;
