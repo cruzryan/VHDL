@@ -10,6 +10,11 @@ entity Prac2Sumador is
 		SEG2 : out std_logic_vector(0 to 6);
 		Trigger : out std_logic
 		);
+
+attribute PIN_NUMBERS of Prac2Sumador:entity is
+"Trigger:13 " & "DeepSwitch1(0):2 DeepSwitch1(1):3 DeepSwitch1(2):4 " & 
+"DeepSwitch2(0):5 DeepSwitch2(1):6 DeepSwitch2(2):7 " & 
+"SEG2(0):23 SEG2(1):22 SEG2(2):21 SEG2(3):20 SEG2(4):19 SEG2(5):18 SEG2(6):17"; 
 end Prac2Sumador;
 
 architecture impl of Prac2Sumador is
@@ -42,6 +47,7 @@ architecture impl of Prac2Sumador is
 begin
 	process is
 	begin
+	wait for 1 ns;
 
 	-- Ponemos todo en nuevas variables
 
@@ -54,7 +60,6 @@ begin
 	X3 <= DeepSwitch1(2);
 	Y3 <= DeepSwitch2(2);
 
-	wait for 10 ns;
 
 	-- Sumador 
 
@@ -72,7 +77,6 @@ begin
 		salBin(1) <= S3;
 		salBin(0) <= C3;
 
-	wait for 10 ns;
 
 	-- Codificador 
 
@@ -119,9 +123,9 @@ begin
 
 		if sum_int > 9 then
 			Trigger <= '1';
+		else 
+			Trigger <= '0';
 		end if;
-
-	wait for 10 ns;
 	end process;
 
 end impl;
