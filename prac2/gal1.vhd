@@ -12,7 +12,7 @@ entity Prac2Sumador is
 		);
 
 attribute PIN_NUMBERS of Prac2Sumador:entity is
-"Trigger:13 " & "DeepSwitch1(0):2 DeepSwitch1(1):3 DeepSwitch1(2):4 " & 
+"Trigger:16 " & "DeepSwitch1(0):2 DeepSwitch1(1):3 DeepSwitch1(2):4 " & 
 "DeepSwitch2(0):5 DeepSwitch2(1):6 DeepSwitch2(2):7 " & 
 "SEG2(0):23 SEG2(1):22 SEG2(2):21 SEG2(3):20 SEG2(4):19 SEG2(5):18 SEG2(6):17"; 
 end Prac2Sumador;
