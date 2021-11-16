@@ -1,21 +1,20 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
+use ieee.numeric_std.ALL;
 
 entity Prac2Sumador is
 	-- 0 to 2 es para lo numeros 8 es para sumar 9 es para enter
 	port(
 		DeepSwitch1 : in std_logic_vector(0 to 2);
 		DeepSwitch2 : in std_logic_vector(0 to 2);
-		Enter : in std_logic;
-		SEG2 : out std_logic_vector(0 to 6)
-		Teller : out std_logic_vector(0 to 2)
+		SEG2 : out std_logic_vector(0 to 6);
+		Trigger : out std_logic
 		);
 end Prac2Sumador;
 
 architecture impl of Prac2Sumador is
-begin
 
-	--	Primer Bit
+--	Primer Bit
 	signal X1 : std_logic;
 	signal Y1 : std_logic;
 	signal S1 : std_logic;
@@ -39,6 +38,8 @@ begin
 	-- Salida en entero
 	signal sum_int : integer;
 
+
+begin
 	process is
 	begin
 
@@ -116,6 +117,9 @@ begin
 
 		-- Mandarle al segundo gal el numero
 
+		if sum_int > 9 then
+			Trigger <= '1';
+		end if;
 
 	wait for 10 ns;
 	end process;
