@@ -20,14 +20,15 @@ end Prac2Sumador;
 architecture impl of Prac2Sumador is
 	-- Salida en binario
 	signal salBin: std_logic_vector (0 to 3);
+	signal XD: std_logic;
 begin
 	process
 	begin
 	--wait for 1 ns;
 
 	-- Sumador 
-
-		salBin(3) <= (NOT(DeepSwitch1(0)) AND DeepSwitch2(0)) OR (DeepSwitch1(0) AND NOT(DeepSwitch2(0)));
+		XD <= (NOT(DeepSwitch1(0)) AND (DeepSwitch2(0)));
+		salBin(3) <= XD OR ((DeepSwitch1(0)) AND NOT(DeepSwitch2(0)));
 		salBin(2) <= (DeepSwitch1(0) AND DeepSwitch2(0)) XOR (DeepSwitch1(1) XOR DeepSwitch2(1));
 		salBin(1) <= (((DeepSwitch1(0) AND DeepSwitch2(0)) AND ((DeepSwitch1(1) AND NOT(DeepSwitch2(1))) OR (NOT(DeepSwitch1(1)) AND DeepSwitch2(1)))) OR (DeepSwitch1(1) AND DeepSwitch2(1))) XOR (DeepSwitch1(2) XOR DeepSwitch2(2));
 		salBin(0) <= ((((DeepSwitch1(0) AND DeepSwitch2(0)) AND ((DeepSwitch1(1) AND NOT(DeepSwitch2(1))) OR (NOT(DeepSwitch1(1)) AND DeepSwitch2(1)))) OR (DeepSwitch1(1) AND DeepSwitch2(1))) AND ((DeepSwitch1(2) AND NOT(DeepSwitch2(2))) OR (NOT(DeepSwitch1(2)) AND DeepSwitch2(2)))) OR (DeepSwitch1(2) AND DeepSwitch2(2));
