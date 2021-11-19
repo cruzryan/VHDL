@@ -18,17 +18,12 @@ entity Prac2Sumador is
 end Prac2Sumador;
 
 architecture impl of Prac2Sumador is
-
 	-- Salida en binario
 	signal salBin: std_logic_vector (0 to 3);
-
-	-- Salida en entero
-	signal sum_int : integer;
-
 begin
-	process is
+	process
 	begin
-	wait for 1 ns;
+	--wait for 1 ns;
 
 	-- Sumador 
 
@@ -39,49 +34,28 @@ begin
 
 
 	-- Codificador 
-
-	sum_int <= to_integer(unsigned(salBin));
-
-	case sum_int is
-			when 0 =>  SEG2 <= "1111110";
-			when 1 =>  SEG2 <= "0110000";
-			when 2 =>  SEG2 <= "1101101";
-			when 3 =>  SEG2 <= "1111001";
-			when 4 =>  SEG2 <= "0110011";
-			when 5 =>  SEG2 <= "1011011";
-			when 6 =>  SEG2 <= "1011111";
-			when 7 =>  SEG2 <= "1110000";
-			when 8 =>  SEG2 <= "1111111";
-			when 9 =>  SEG2 <= "1110011";
-
-			when 10 => SEG2 <= "1111110";
-			when 11 => SEG2 <= "0110000";
-			when 12 => SEG2 <= "1101101";
-			when 13 => SEG2 <= "1111001";
-			when 14 => SEG2 <= "0110011";
-			when 15 => SEG2 <= "1011011";
-			when 16 => SEG2 <= "1011111";
-			when 17 => SEG2 <= "1111111";
-			when 19 => SEG2 <= "1110000";
-			when 18 => SEG2 <= "1110011";
-
-			when 20 => SEG2 <= "1111110";
-			when 21 => SEG2 <= "0110000";
-			when 22 => SEG2 <= "1101101";
-			when 23 => SEG2 <= "1111001";
-			when 24 => SEG2 <= "0110011";
-			when 25 => SEG2 <= "1011011";
-			when 26 => SEG2 <= "1011111";
-			when 27 => SEG2 <= "1110000";
-			when 28 => SEG2 <= "1111111";
-			when 29 => SEG2 <= "1110011";
-			when 30 => SEG2 <= "1111110";
-		when others => report "unreachable" severity failure;
+	case salBin is
+			when "0000" =>  SEG2 <= "1111110";
+			when "0001" =>  SEG2 <= "0110000";
+			when "0010" =>  SEG2 <= "1101101";
+			when "0011" =>  SEG2 <= "1111001";
+			when "0100" =>  SEG2 <= "0110011";
+			when "0101" =>  SEG2 <= "1011011";
+			when "0110" =>  SEG2 <= "1011111";
+			when "0111" =>  SEG2 <= "1110000";
+			when "1000" =>  SEG2 <= "1111111";
+			when "1001" =>  SEG2 <= "1110011";
+			when "1010" => SEG2 <= "1111110";
+			when "1011" => SEG2 <= "0110000";
+			when "1100" => SEG2 <= "1101101";
+			when "1101" => SEG2 <= "1111001";
+			when "1110" => SEG2 <= "0110011";
+			when "1111" => SEG2 <= "1011011";
+		when others => SEG2 <= "0000000";
 		end case;
 
 		-- Mandarle al segundo gal el numero
-
-		if sum_int > 9 then
+		if salBin > "1001" then
 			Trigger <= '1';
 		else 
 			Trigger <= '0';
