@@ -22,6 +22,7 @@ architecture impl of Prac2Sumador is
 begin
 	process
 	begin
+		--wait for 10 ns;
 		-- Sumador 
 		salBin(3) <= DeepSwitch1(0) XOR DeepSwitch2(0);
 		salBin(2) <= (DeepSwitch1(0) AND DeepSwitch2(0)) XOR (DeepSwitch1(1) XOR DeepSwitch2(1));

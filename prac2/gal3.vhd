@@ -9,7 +9,7 @@ entity Prac2Deco is
 	);
 
 	attribute PIN_NUMBERS of Prac2Deco:entity is
-	"inBin(3): 1 inBin(2): 2 inBin(1): 3 inBin(0): 4 " & 
+	"inBin(3):2 inBin(2):3 inBin(1):4 inBin(0):5 " & 
 	"SEG2(0):23 SEG2(1):22 SEG2(2):21 SEG2(3):20 SEG2(4):19 SEG2(5):18 SEG2(6):17";
 end Prac2Deco;
 
