@@ -1,50 +1,34 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
 
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 entity Prac3Logic is
-	port(
-		A : in std_logic_vector(0 to 2);
-		B : in std_logic_vector(0 to 2);
-		DISPLAY : out std_logic_vector(0 to 6)
-		);
-
+port( a,b : in unsigned(2 downto 0);  
+        a_igual_b : out std_logic;  
+        a_menor_b : out std_logic;  
+        a_mayor_b : out std_logic  
+      );    
 end Prac3Logic;
 
 architecture impl of Prac3Logic is
-	-- flag 1: A es mayor, flag 2: B es mayor
-	signal flag: integer := 0;
-	begin
-		process is 
-		begin
-		gl: for i in 0 to 2 loop
-			
-			wait for 10 ns;
-			if (A(i) = '1') AND (B(i) = '0') AND (flag = 0) then
-				flag <= 1;
-			elsif (A(i) = '0') AND (B(i) = '1') AND (flag = 0) then
-				flag <= 2;
-			end if;
-		end loop;
-		end process;
 
-		process is
-		begin
-			wait for 10 ns;
+signal notxor2,notxor1,notxor0,notand2,notand1,notand0,andnot2,andnot1,andnot0 : std_logic := '0';
 
-		-- Son iguales
-		if (flag = 0) then
-			DISPLAY <= "0001001";
-		end if;
+begin
 
-		-- A es mayor
-		if (flag = 1) then
-			DISPLAY <= "1110111";
-		end if;
+notxor2 <= not(a(2) xor b(2));
+notxor1 <= not(a(1) xor b(1)); 
+notxor0 <= not(a(0) xor b(0)); 
+notand2 <= (not a(2)) and b(2);
+notand1 <= (not a(1)) and b(1);
+notand0 <= (not a(0)) and b(0);
+andnot2 <= a(2) and (not b(2));
+andnot1 <= a(1) and (not b(1));
+andnot0 <= a(0) and (not b(0));
 
-		-- B es mayor
-		if (flag = 2) then
-			DISPLAY <= "0011111";
-		end if;
-		end process;
+a_igual_b <= notxor2 and notxor1 and notxor0;
+a_menor_b <= notand2 or (notxor2 and notand1) or (notxor2 and notxor1 and notand0); 
+a_mayor_b <= andnot2 or (notxor2 and andnot1) or (notxor2 and notxor1 and andnot0); 
+
 end impl;
