@@ -13,8 +13,6 @@ architecture impl of Prac3Gal2 is
 	begin
 		process
 		begin
-		wait for 10 ns;
-
 		case i is
 		--Iguales
 		when "001" => DISPLAY <= "0001001";
