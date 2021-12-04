@@ -8,15 +8,17 @@ entity FA is
 		 K : in std_logic; -- K
 		 Cin : in std_logic; --Cin
 		 Sum : OUT std_logic; --Sum
-		 Cout : OUT std_logic); --Cout
+		 Cout : OUT std_logic; --Cout
+		 INO : INOUT std_logic);
 end FA;
 
 architecture impl of FA is
 begin
 	process
 	begin
-		Cout <= (Cin AND ((A AND NOT(B XOR K)) OR (NOT(A) AND (B XOR K)))) OR (A AND (B XOR K));
-		Sum <= Cin XOR (A XOR (B XOR K));
+		INO <= (B XOR K);
+		Cout <= (Cin AND ((A AND NOT(INO)) OR (NOT(A) AND (INO)))) OR (A AND (INO));
+		Sum <= Cin XOR (A XOR (INO));
 		--wait for 10 ns;
 	end process;
 end impl;
