@@ -15,7 +15,7 @@ architecture sim of TB2 is
 	signal onn : STD_LOGIC;
 begin
 
-	comp : entity work.comparador(impl) port map(
+	comp : entity work.FA(impl) port map(
 		a => a,
 		b => b,
 		o => onn
