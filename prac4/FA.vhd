@@ -19,6 +19,6 @@ begin
 		INO <= (B XOR K);
 		Cout <= (Cin AND ((A AND NOT(INO)) OR (NOT(A) AND (INO)))) OR (A AND (INO));
 		Sum <= Cin XOR (A XOR (INO));
-		--wait for 10 ns;
+		wait for 10 ns;
 	end process;
 end impl;
