@@ -21,7 +21,7 @@ architecture impl of Coords is
 		num <= to_integer(unsigned(OPCODE));		
 		process
 		begin
-			wait for 10 ns;
+			--wait for 10 ns;
 			 I <= '0';
 			 if ( num < 6 ) then
 			 	BOOLEAN_OUT(2) <= OPCODE(2);
