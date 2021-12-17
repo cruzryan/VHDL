@@ -17,9 +17,9 @@ architecture impl of Coords is
 	signal num : integer;
 	begin
 		num <= to_integer(unsigned(OPCODE));		
-		process is
+		process
 		begin
-			wait for 10 ns;
+			--wait for 10 ns;
 			 if ( num < 6 ) then
 			 	BOOLEAN_OUT(2) <= OPCODE(2);
 			 	BOOLEAN_OUT(1) <= OPCODE(1);
