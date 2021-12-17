@@ -20,9 +20,11 @@ begin
 notxor2 <= not(a(2) xor b(2));
 notxor1 <= not(a(1) xor b(1)); 
 notxor0 <= not(a(0) xor b(0)); 
+
 notand2 <= (not a(2)) and b(2);
 notand1 <= (not a(1)) and b(1);
 notand0 <= (not a(0)) and b(0);
+
 andnot2 <= a(2) and (not b(2));
 andnot1 <= a(1) and (not b(1));
 andnot0 <= a(0) and (not b(0));
