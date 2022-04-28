@@ -14,7 +14,7 @@ architecture impl of DecoderSimple is
 		trigger <= sum_in(3);
 		process 
 		begin
-			wait for 10 ns;
+			--wait for 10 ns;
 			case sum_in is
 				--Positivos (0 -> 6)
 				when "0000" =>  DISPLAY <= "1111110";

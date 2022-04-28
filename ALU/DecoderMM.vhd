@@ -22,11 +22,11 @@ architecture impl of DecoderMMI is
 		begin
 			--wait for 10 ns;
 			case op is 
-			-- Iguales
+			-- Iguales = 
 			when "100" => DISPLAY <= "0001001";
-			-- A es mayor
+			-- A es mayor A
 			when "010" => DISPLAY <= "1110111";
-			-- B es mayor
+			-- B es mayor b
 			when "001" => DISPLAY <= "0011111";
 			-- Apagado
 			when others => DISPLAY <= "0000000";
