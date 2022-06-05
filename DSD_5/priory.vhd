@@ -1,0 +1,38 @@
+library IEEE;
+
+use IEEE.std_logic_1164.ALL;
+
+
+ENTITY priory is
+
+	PORT(
+		I: IN STD_LOGIC_VECTOR(9 downto 0);
+		E: OUT STD_LOGIC_VECTOR(3 downto 0)
+		);
+
+end priory;
+
+
+ARCHITECTURE main of priory IS
+
+BEGIN
+	PROCESS
+	BEGIN
+
+	CASE I IS
+
+		WHEN "1000000000" => E <= "0000";
+		WHEN "0100000000" => E <= "0001";
+		WHEN "0010000000" => E <= "0010";
+		WHEN "0001000000" => E <= "0011";
+		WHEN "0000100000" => E <= "0100";
+		WHEN "0000010000" => E <= "0101";
+		WHEN "0000001000" => E <= "0110";
+		WHEN "0000000100" => E <= "0111";
+		WHEN "0000000010" => E <= "1000";
+		WHEN OTHERS => E <= "1001";
+
+	END CASE;
+	
+	END PROCESS;
+end ARCHITECTURE;
