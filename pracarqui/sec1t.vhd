@@ -11,9 +11,11 @@ end entity sec1_t;
 architecture main of sec1_t is
     
 begin
-    
+  process
+  begin
     A <= (A and not(B and C)) or (C and (not(A) or B));
     B <= not(A xor B);
     C <= not(A) and (B xor C);
-    
+  wait for 10 ns;
+  end process;
 end architecture main;
